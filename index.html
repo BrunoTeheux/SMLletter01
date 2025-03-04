@@ -204,56 +204,6 @@
           margin-bottom: 15px;
         }
       }
-
-      /* New styles for expandable content */
-      .expandable-content {
-        position: relative;
-        max-height: 150px;
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-      }
-
-      .expandable-content.expanded {
-        max-height: 2000px; /* A large value to accommodate any content length */
-      }
-
-      .read-more-btn {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 8px 16px;
-        background-color: #52adda;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
-        transition: background-color 0.2s ease;
-      }
-
-      .read-more-btn:hover {
-        background-color: #3d8eb3;
-      }
-
-      .fade-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 70px;
-        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-      }
-
-      .expandable-content.expanded .fade-overlay {
-        opacity: 0;
-      }
-
-      .btn-container {
-        text-align: center;
-        margin-top: 10px;
-      }
     </style>
   </head>
   <body>
@@ -267,15 +217,15 @@
     <div class="issue-info">Issue 1 • March 2025</div>
 
     <div class="news-container">
-      <!-- Featured news item (full width) with expandable content -->
+      <!-- Featured news item (full width) -->
       <div class="news-item news-item-full">
         <div class="news-item-header">
           <h2 class="news-item-title">President's Message</h2>
           <div class="news-item-date">March 1, 2025</div>
         </div>
         <div class="news-item-content">
-          <img src="https://placehold.co/280x280" alt="President" class="news-item-image" />
-          <div class="expandable-content" id="presidentsMessage">
+          <img src="https://placehold.co/280x280" alt="President"
+	  class="news-item-square-image" />
 	    <p>
 	      To do: careers day, Jean-Baptiste Aubin, event of February
 	    </p>
@@ -345,11 +295,6 @@
             <p><strong>Prof. Giovanni Peccati</strong><br>
 	    President of the Luxembourg Mathematical Society
 	    </p>
-            <div class="fade-overlay"></div>
-          </div>
-          <div class="btn-container">
-            <button class="read-more-btn" id="readMoreBtn">Read More</button>
-          </div>
         </div>
         <div class="news-item-footer">
           <a href="http://math.uni.lu/sml">SML Website</a>
@@ -528,22 +473,5 @@
     <div class="footer">
       <p>© 2025 Luxembourg Mathematical Society. All rights reserved.</p>
     </div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const expandableContent = document.getElementById('presidentsMessage');
-        const readMoreBtn = document.getElementById('readMoreBtn');
-        
-        readMoreBtn.addEventListener('click', function() {
-          expandableContent.classList.toggle('expanded');
-          
-          if (expandableContent.classList.contains('expanded')) {
-            readMoreBtn.textContent = 'Show Less';
-          } else {
-            readMoreBtn.textContent = 'Read More';
-          }
-        });
-      });
-    </script>
   </body>
 </html>
